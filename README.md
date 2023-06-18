@@ -1,3 +1,3 @@
 # mkdocs
 
-Test d'écriture à distance...
+Test d'écriture à distance... à partir de VScode
