@@ -19,16 +19,19 @@
 
 ## Schéma électronique
 
+![Feux](images/schema-feu-A.png){width=600px}
+
 ## Représentation du fonctionnement des feux
 
 On peut représenter le fonctionnement des feux de carrefour par ce _chronogramme_. On considère qu'il y a deux voies qui se croisent dans notre carrefour : la voie __A__ et la voie __B__ : 
 
-![Chronogramme](images/chronogramme-feux-tricolores-sans-appel-pietons.png){width=100%}
+![Chronogramme](images/chronogramme-feux-tricolores-sans-appel-pietons.png){width=800px}
 
 ## Programme et explications
 
 ### Informations générales
-
+On décrit le programme dans un en-tête, au début du programme. Cette zone permet d'indiquer quelques informations principales : l'auteur du programme, l'organisme, éventuellement la version. __ Ne négligez pas cette partie !__  
+Cette partie ne sera pas exécutée, elle appraît sous la forme d'un bloc de commentaires.
 
 ``` arduino
 /*
@@ -36,4 +39,15 @@ On peut représenter le fonctionnement des feux de carrefour par ce _chronogramm
 / les feux de carrefour.
 / Philippe Morin - Lycée Jules Verne 
 */
+```
+
+### Intitialisation
+``` arduino
+void setup() {
+  pinMode(feuRougeVoieA, OUTPUT);
+  pinMode(feuOrangeVoieA, OUTPUT);
+  pinMode(feuVertVoieA, OUTPUT);
+ 
+  departCycle = millis();
+}
 ```

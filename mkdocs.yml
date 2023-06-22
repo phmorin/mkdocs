@@ -13,7 +13,7 @@ theme:
     - content.code.copy
 
   font:
-    text: Open Sans
+    text: PT Sans
 
   language: fr
 
@@ -42,7 +42,13 @@ extra:
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/phmorin
 
+copyright: >
+    Documents <a href="https://github.com/phmorin" target="_blank">Philippe MORIN</a>
+    &copy; 2021 sous licence <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.fr" target="_blank">CC BY-NC-SA 4.0</a>
+
+
 markdown_extensions:
+  - md_in_html
   - pymdownx.highlight:
       linenums: true
   - pymdownx.inlinehilite

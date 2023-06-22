@@ -1,14 +1,7 @@
-# Accueil
-
-Bienvenue sur ce site de test.
+# Bienvenue
 
 <figure markdown>
-  ![Logo STI2D](images/Logo-STI2D.png)
-  <figcaption>Image caption</figcaption>
+  ![image](images/Logo-STI2D.png)
 </figure>
 
-
-
-
-Pour la documentation entière : [mkdocs.org](https://www.mkdocs.org).
 
