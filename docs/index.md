@@ -1,5 +1,7 @@
 # Accueil
 
+Bienvenue sur ce site de test.
+
 Pour la documentation entière : [mkdocs.org](https://www.mkdocs.org).
 
 ## Commands

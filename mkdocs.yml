@@ -11,6 +11,10 @@ theme:
     - content.tabs.link
     - content.code.annotation
     - content.code.copy
+
+  font:
+    text: Faustina
+
   language: fr
 
   palette:
