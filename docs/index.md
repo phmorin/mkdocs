@@ -1,6 +1,6 @@
 # Accueil
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+Pour la documentation entière : [mkdocs.org](https://www.mkdocs.org).
 
 ## Commands
 
