@@ -29,8 +29,8 @@
       
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:300,400,400i,700%7C&display=fallback">
-        <style>:root{--md-text-font:"PT Sans";--md-code-font:""}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
     
@@ -363,14 +363,55 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#definition-et-declaration-des-constantes" class="md-nav__link">
+    Définition et déclaration des constantes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#intitialisation" class="md-nav__link">
     Intitialisation
   </a>
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#fonction-principale" class="md-nav__link">
+    Fonction principale
+  </a>
+  
+    <nav class="md-nav" aria-label="Fonction principale">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#que-se-passe-t-il-dans-cette-fonction" class="md-nav__link">
+    Que se passe-t-il dans cette fonction ?
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fonctions-dextinction-et-dallumage-des-feux" class="md-nav__link">
+    Fonctions d'extinction et d'allumage des feux
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#programme-complet" class="md-nav__link">
+    Programme complet
+  </a>
   
 </li>
       
@@ -443,7 +484,29 @@ Cette partie ne sera pas exécutée, elle appraît sous la forme d'un bloc de co
 <span class="cm">*/</span><span class="w"></span>
 </code></pre></div>
 </td></tr></table>
+<h3 id="definition-et-declaration-des-constantes">Définition et déclaration des constantes</h3>
+<p>On définit quelques noms de constantes pour plus de lisibilité. Par exemple, à chaque fois que le programme rencontrera l'expression <code>feuRougeVoieA</code>, il la remplacera par la valeur <code>5</code>. Ces définitions seront créees avant compilation, ce ne sont donc pas des instructions. C'est pourquoi ces lilgne ne se terminent pas par un point-virgule.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#define feuRougeVoieA 5</span>
+<span class="cp">#define feuOrangeVoieA 4</span>
+<span class="cp">#define feuVertVoieA 3</span>
+
+<span class="kr">unsigned</span><span class="w"> </span><span class="kr">long</span><span class="w"> </span><span class="n">departCycle</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
+</td></tr></table>
+<div class="admonition note">
+<p class="admonition-title">Noms des variables et constantes</p>
+<p>Remarquez la forme des noms de ces variables et constantes : chaque mot commence par une majuscule. On aurait pu aussi nommer <code>feu_rouge_voie_a</code>, par exemple. Choisissez un type de nom explicite, et tentez de le conserver.</p>
+</div>
 <h3 id="intitialisation">Intitialisation</h3>
+<p>La fonction <code>setup()</code> permet d'initialiser quelques éléments de notre programme :</p>
+<ul>
+<li>on indique que les broches utilisées seront gérées en <em>sortie</em> (on envoie un courant) ;</li>
+<li>on initialise la variable qui indique le temps de départ de notre cycle en lui donnant la valeur <code>millis()</code> courante (quelques détails sur la fonction millis() sur <a href="https://arduino-france.site/millis-arduino/" target="_blank">cette page</a>). </li>
+</ul>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -459,6 +522,64 @@ Cette partie ne sera pas exécutée, elle appraît sous la forme d'un bloc de co
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
 </td></tr></table>
+<h3 id="fonction-principale">Fonction principale</h3>
+<p>La fonction principale d'un programme Arduino s'appelle <code>loop()</code>. Toute les instructions comprises dans cette fonction s'exécute les unes après les autres. À la fin de cette fonction, on recommence à exécuter les instructions, ceci indéfiniment.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">void</span><span class="w"> </span><span class="nb">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">  </span><span class="c1">// Extinction des feux :</span>
+<span class="w">  </span><span class="nf">digitalWrite</span><span class="p">(</span><span class="n">feuRougeVoieA</span><span class="p">,</span><span class="w"> </span><span class="kr">LOW</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="nf">digitalWrite</span><span class="p">(</span><span class="n">feuOrangeVoieA</span><span class="p">,</span><span class="w"> </span><span class="kr">LOW</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="nf">digitalWrite</span><span class="p">(</span><span class="n">feuVertVoieA</span><span class="p">,</span><span class="w"> </span><span class="kr">LOW</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">  </span><span class="c1">// Comparaison du temps passé avec le départ du cycle :</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nf">millis</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">departCycle</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">3000</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="n">passageVoieA</span><span class="p">();}</span><span class="w">  </span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="nf">millis</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="p">(</span><span class="n">departCycle</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">3000</span><span class="p">))</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="nf">millis</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">departCycle</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">4000</span><span class="p">)))</span><span class="w"> </span><span class="p">{</span><span class="n">transitionVoieA</span><span class="p">();</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="nf">millis</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="p">(</span><span class="n">departCycle</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">4000</span><span class="p">))</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="nf">millis</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">departCycle</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">8000</span><span class="p">)))</span><span class="w"> </span><span class="p">{</span><span class="n">arretVoieA</span><span class="p">();;}</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nf">millis</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">departCycle</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">8000</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="n">departCycle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">millis</span><span class="p">();}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</td></tr></table>
+<h4 id="que-se-passe-t-il-dans-cette-fonction">Que se passe-t-il dans cette fonction ?</h4>
+<ul>
+<li>On éteint tous les feux.</li>
+<li>On compare le temps actuel (<code>millis()</code>) avec le moment de départ du cycle :<ul>
+<li>s'il est inférieur à 3000, on laisse passer les voitures de la voie A (feu vert) ;</li>
+<li>s'il est compris entre 3000 et 4000, on prépare la transition de la voie A vers l'arrêt des véhicules (feu orange) ;</li>
+<li>s'il est compris entre 4000 et 8000, on arrête les voitures de la voie A (feu rouge) ;</li>
+<li>Si ce temps est supérieur à 8000, on réinitialise le départ du cycle, puis on recommence.</li>
+</ul>
+</li>
+</ul>
+<p>on ne commande pas directement l'extinction et l'allumage des feux directement dans cette fonction, on passe par d'autres fonctions qui en ont la charge (<code>passageVoieA()</code>, <code>transitionVoieA()</code>, etc ). Ces fonctions sont définies dans la suite du programme :</p>
+<h3 id="fonctions-dextinction-et-dallumage-des-feux">Fonctions d'extinction et d'allumage des feux</h3>
+<p>Elles se placent à la suite de la fonction <code>loop()</code>. Par exemple :</p>
+<p>```arduino
+void passageVoieA() {
+  digitalWrite(feuRougeVoieA, LOW);
+  digitalWrite(feuOrangeVoieA, LOW);
+  digitalWrite(feuVertVoieA, HIGH);
+}
+````
+Les autres fonctions seront semblables.</p>
+<h2 id="programme-complet">Programme complet</h2>
+<p>Il est téléchargeable ici : <a href="../feu-tricolore-1/feu-tricolore-1.ino">feu-tricolore-1.ino</a></p>
+<div class="admonition bug">
+<p class="admonition-title">Travail à réaliser</p>
+<p>Vous devez créer ce montage et tester le programme avec un seul feu dans un premier temps.<br />
+Ensuite vous devez câbler un deuxième feu tricolore, qui indiquera le fonctionnement pour les véhicules de la voie B. À vous de modifier le programme pour y insérer les extinctions et allumages du deuxième feu...</p>
+</div>
 
               
             </article>
