@@ -42,6 +42,13 @@ Cette partie ne sera pas exécutée, elle appraît sous la forme d'un bloc de co
 ```
 
 ### Intitialisation
+
+La fonction `setup()` permet d'initialiser quelques éléments de notre programme :
+
+- on indique que les broches utilisées seront gérées en _sortie_ (on envoie un courant) ;
+- on initialise la variable qui indique le temps de départ de notre cycle en lui donnant la valeur `millis()` courante. 
+
+
 ``` arduino
 void setup() {
   pinMode(feuRougeVoieA, OUTPUT);
@@ -51,3 +58,7 @@ void setup() {
   departCycle = millis();
 }
 ```
+
+### Fonction principale
+
+La fonction principale
