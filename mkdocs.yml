@@ -12,9 +12,6 @@ theme:
     - content.code.annotation
     - content.code.copy
 
-  font:
-    text: PT Sans
-
   language: fr
 
   palette:
