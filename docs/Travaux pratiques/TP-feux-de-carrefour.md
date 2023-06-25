@@ -41,12 +41,28 @@ Cette partie ne sera pas exécutée, elle appraît sous la forme d'un bloc de co
 */
 ```
 
+### Définition et déclaration des constantes
+
+On définit quelques noms de constantes pour plus de lisibilité. Par exemple, à chaque fois que le programme rencontrera l'expression `feuRougeVoieA`, il la remplacera par la valeur `5`. Ces définitions seront créees avant compilation, ce ne sont donc pas des instructions. C'est pourquoi ces lilgne ne se terminent pas par un point-virgule.
+
+``` arduino
+#define feuRougeVoieA 5
+#define feuOrangeVoieA 4
+#define feuVertVoieA 3
+
+unsigned long departCycle;
+
+```
+
+!!! note "Noms des variables et constantes"
+    Remarquez la forme des noms de ces variables et constantes : chaque mot commence par une majuscule. On aurait pu aussi nommer `feu_rouge_voie_a`, par exemple. Choisissez un type de nom explicite, et tentez de le conserver.
+
 ### Intitialisation
 
 La fonction `setup()` permet d'initialiser quelques éléments de notre programme :
 
 - on indique que les broches utilisées seront gérées en _sortie_ (on envoie un courant) ;
-- on initialise la variable qui indique le temps de départ de notre cycle en lui donnant la valeur `millis()` courante. 
+- on initialise la variable qui indique le temps de départ de notre cycle en lui donnant la valeur `millis()` courante (quelques détails sur la fonction millis() sur [cette page](https://arduino-france.site/millis-arduino/){:target="_blank" }). 
 
 
 ``` arduino
@@ -61,4 +77,50 @@ void setup() {
 
 ### Fonction principale
 
-La fonction principale
+La fonction principale d'un programme Arduino s'appelle `loop()`. Toute les instructions comprises dans cette fonction s'exécute les unes après les autres. À la fin de cette fonction, on recommence à exécuter les instructions, ceci indéfiniment.
+
+``` arduino
+void loop() {
+ 
+  // Extinction des feux :
+  digitalWrite(feuRougeVoieA, LOW);
+  digitalWrite(feuOrangeVoieA, LOW);
+  digitalWrite(feuVertVoieA, LOW);
+ 
+  // Comparaison du temps passé avec le départ du cycle :
+  if (millis() < (departCycle + 3000)) {passageVoieA();}  
+  if ((millis() >= (departCycle + 3000)) && (millis() < (departCycle + 4000))) {transitionVoieA(); }
+  if ((millis() >= (departCycle + 4000)) && (millis() < (departCycle + 8000))) {arretVoieA();;}
+  if (millis() > (departCycle + 8000)) {departCycle = millis();}
+}
+```
+#### Que se passe-t-il dans cette fonction ?
+
+- On éteint tous les feux.
+- On compare le temps actuel (`millis()`) avec le moment de départ du cycle :
+    - s'il est inférieur à 3000, on laisse passer les voitures de la voie A (feu vert) ;
+    - s'il est compris entre 3000 et 4000, on prépare la transition de la voie A vers l'arrêt des véhicules (feu orange) ;
+    - s'il est compris entre 4000 et 8000, on arrête les voitures de la voie A (feu rouge) ;
+    - Si ce temps est supérieur à 8000, on réinitialise le départ du cycle, puis on recommence.
+
+on ne commande pas directement l'extinction et l'allumage des feux directement dans cette fonction, on passe par d'autres fonctions qui en ont la charge (`passageVoieA()`, `transitionVoieA()`, etc ). Ces fonctions sont définies dans la suite du programme :
+
+### Fonctions d'extinction et d'allumage des feux
+
+Elles se placent à la suite de la fonction `loop()`. Par exemple :
+
+```arduino
+void passageVoieA() {
+  digitalWrite(feuRougeVoieA, LOW);
+  digitalWrite(feuOrangeVoieA, LOW);
+  digitalWrite(feuVertVoieA, HIGH);
+}
+````
+Les autres fonctions seront semblables.
+
+## Programme complet
+Il est téléchargeable ici : [feu-tricolore-1.ino](feu-tricolore-1/feu-tricolore-1.ino)
+
+!!! bug "Travail à réaliser"
+    Vous devez créer ce montage et tester le programme avec un seul feu dans un premier temps.  
+    Ensuite vous devez câbler un deuxième feu tricolore, qui indiquera le fonctionnement pour les véhicules de la voie B. À vous de modifier le programme pour y insérer les extinctions et allumages du deuxième feu...

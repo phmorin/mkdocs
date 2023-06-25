@@ -14,8 +14,11 @@ theme:
 
   language: fr
 
-  palette:
+  icon:
+    admonition:
+      <type>: <icon>
 
+  palette:
     - scheme: default
       toggle:
         icon: material/toggle-switch-off-outline
