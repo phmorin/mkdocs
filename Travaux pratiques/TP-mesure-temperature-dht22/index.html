@@ -347,6 +347,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#cablage" class="md-nav__link">
+    Câblage
+  </a>
+  
+    <nav class="md-nav" aria-label="Câblage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#programme" class="md-nav__link">
+    Programme
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -398,10 +418,74 @@ Ce capteur se branche sur une broche numérique d'une carte électronique type A
 </div>
 <h2 id="materiel-necessaire">Matériel nécessaire</h2>
 <ul>
-<li><a href="https://www.gotronic.fr/art-module-capteur-t-et-humidite-sen-dht22-31502.htm" target="_blank">DHT 22</a></li>
-<li>Carte électronique type <a href="https://www.gotronic.fr/art-arduino-uno-a000066-12420.htm" target="_blank">Arduino Uno</a> ou <a href="https://www.gotronic.fr/art-module-nodemcu-esp32-28407.htm" target="_blank">ESP32</a></li>
+<li><a href="https://www.gotronic.fr/art-module-capteur-t-et-humidite-sen-dht22-31502.htm" target="_blank">DHT 22</a>.</li>
+<li>Carte électronique type <a href="https://www.gotronic.fr/art-arduino-uno-a000066-12420.htm" target="_blank">Arduino Uno</a> ou <a href="https://www.gotronic.fr/art-module-nodemcu-esp32-28407.htm" target="_blank">ESP32</a>.</li>
 <li><a href="https://amzn.eu/d/0e806SJ" target="_blank">Analyseur logique</a> et <a href="https://www.saleae.com/downloads/" target="_blank">son logiciel</a>, à télécharger et à installer.</li>
 </ul>
+<h2 id="cablage">Câblage</h2>
+<h3 id="programme">Programme</h3>
+<p>Le programme en entier :</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;DHT.h&quot;</span><span class="cp"></span>
+
+<span class="c1">// Definit la broche de l&#39;Arduino sur laquelle la </span>
+<span class="c1">// broche DATA du capteur est reliee </span>
+<span class="cp">#define brocheDHT 23</span>
+
+<span class="c1">// Definit le type de capteur utilise</span>
+<span class="cp">#define DHTTYPE DHT22</span>
+
+<span class="c1">// Declare un objet de type DHT</span>
+<span class="c1">// Il faut passer en parametre du constructeur </span>
+<span class="c1">// de l&#39;objet la broche et le type de capteur</span>
+<span class="n">DHT</span><span class="w"> </span><span class="nf">dht</span><span class="p">(</span><span class="n">brocheDHT</span><span class="p">,</span><span class="w"> </span><span class="n">DHTTYPE</span><span class="p">);</span><span class="w"></span>
+
+<span class="kr">void</span><span class="w"> </span><span class="nb">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">begin</span><span class="p">(</span><span class="mi">9600</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">  </span><span class="c1">// Initialise la capteur DHT11</span>
+<span class="w">  </span><span class="n">dht</span><span class="p">.</span><span class="nf">begin</span><span class="p">();</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kr">void</span><span class="w"> </span><span class="nb">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// Recupere la temperature et l&#39;humidite du capteur et l&#39;affiche</span>
+<span class="w">  </span><span class="c1">// sur le moniteur serie</span>
+<span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="s">&quot;Temperature = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="kr">String</span><span class="p">(</span><span class="n">dht</span><span class="p">.</span><span class="nf">readTemperature</span><span class="p">())</span><span class="o">+</span><span class="s">&quot; °C&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="s">&quot;Humidite = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="kr">String</span><span class="p">(</span><span class="n">dht</span><span class="p">.</span><span class="n">readHumidity</span><span class="p">())</span><span class="o">+</span><span class="s">&quot; %&quot;</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">  </span><span class="c1">// Attend 10 secondes avant de reboucler</span>
+<span class="w">  </span><span class="nf">delay</span><span class="p">(</span><span class="mi">10000</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</td></tr></table>
 
               
             </article>
