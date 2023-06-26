@@ -18,7 +18,7 @@
 Le programme en entier :
 
 !!! warning "Attention !"
-    Le seul point à surveiller est le numéro de la broche utilisée. Dans ce cas, `brocheDHT` est la braoche 23 (la carte utilisée est une ESP32).
+    Le seul point à surveiller est le numéro de la broche utilisée. Dans ce cas, `brocheDHT` est la broche 23 (la carte utilisée est une ESP32).
 
 ``` arduino
 
