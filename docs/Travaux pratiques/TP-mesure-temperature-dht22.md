@@ -6,6 +6,6 @@
     __Comment sont envoyées les informations d'humidité et de température du capteur vers la carte ?__
 
 ## Matériel nécessaire
-- [DHT 22](https://www.gotronic.fr/art-module-capteur-t-et-humidite-sen-dht22-31502.htm){target=_blank}
+- [DHT 22](https://www.gotronic.fr/art-module-capteur-t-et-humidite-sen-dht22-31502.htm){target=_blank}.
 - Carte électronique type [Arduino Uno](https://www.gotronic.fr/art-arduino-uno-a000066-12420.htm){target=_blank} ou [ESP32](https://www.gotronic.fr/art-module-nodemcu-esp32-28407.htm){target=_blank}.
 - [Analyseur logique](https://amzn.eu/d/0e806SJ){target=_blank} et [son logiciel](https://www.saleae.com/downloads/){target=_blank}, à télécharger et à installer.
