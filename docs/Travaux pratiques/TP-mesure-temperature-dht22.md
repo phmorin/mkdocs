@@ -31,8 +31,8 @@ Le programme en entier :
 // Definit le type de capteur utilisé
 #define DHTTYPE DHT22
  
-// Declare un objet de type DHT
-// Il faut passer en parametre du constructeur 
+// Déclare un objet de type DHT
+// Il faut passer en paramètre du constructeur 
 // de l'objet la broche et le type de capteur
 DHT dht(brocheDHT, DHTTYPE);
  
@@ -53,6 +53,7 @@ void loop() {
   delay(10000);
 }
 ```
-Là je change qqchose...
+
+
 
 
