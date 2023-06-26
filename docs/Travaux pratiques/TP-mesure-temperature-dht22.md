@@ -17,6 +17,9 @@
 
 Le programme en entier :
 
+!!! warning "Attention !"
+    Le seul point à surveiller est le numéro de la broche utilisée. Dans ce cas, `brocheDHT` est la braoche 23 (la carte utilisée est une ESP32).
+
 ``` arduino
 
 #include "DHT.h"
@@ -36,13 +39,13 @@ DHT dht(brocheDHT, DHTTYPE);
 void setup() {
   Serial.begin(9600);
    
-  // Initialise la capteur DHT11
+  // Initialise le capteur DHT22
   dht.begin();
 }
  
 void loop() {
-  // Recupere la temperature et l'humidite du capteur et l'affiche
-  // sur le moniteur serie
+  // Récupère la température et l'humidité du capteur et l'affiche
+  // sur le moniteur série
   Serial.println("Temperature = " + String(dht.readTemperature())+" °C");
   Serial.println("Humidite = " + String(dht.readHumidity())+" %");
  
