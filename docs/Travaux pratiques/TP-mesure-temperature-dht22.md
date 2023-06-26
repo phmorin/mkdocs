@@ -24,11 +24,11 @@ Le programme en entier :
 
 #include "DHT.h"
  
-// Definit la broche de l'Arduino sur laquelle la 
-// broche DATA du capteur est reliee 
+// Définit la broche de l'Arduino sur laquelle la 
+// broche DATA du capteur est reliée 
 #define brocheDHT 23
  
-// Definit le type de capteur utilise
+// Definit le type de capteur utilisé
 #define DHTTYPE DHT22
  
 // Declare un objet de type DHT
