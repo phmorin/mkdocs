@@ -54,6 +54,8 @@ void loop() {
 }
 ```
 
+Les données sont affichées toutes les 10 secondes dans le moniteur série de votre IDE (Arduino ou Visual Studio Code).
+
 
 
 
