@@ -419,6 +419,10 @@ Ce capteur se branche sur une broche numérique d'une carte électronique type A
 <h2 id="cablage">Câblage</h2>
 <h2 id="programme">Programme</h2>
 <p>Le programme en entier :</p>
+<div class="admonition warning">
+<p class="admonition-title">Attention !</p>
+<p>Le seul point à surveiller est le numéro de la broche utilisée. Dans ce cas, <code>brocheDHT</code> est la broche 23 (la carte utilisée est une ESP32).</p>
+</div>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -450,11 +454,11 @@ Ce capteur se branche sur une broche numérique d'une carte électronique type A
 <span class="normal">29</span>
 <span class="normal">30</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;DHT.h&quot;</span><span class="cp"></span>
 
-<span class="c1">// Definit la broche de l&#39;Arduino sur laquelle la </span>
-<span class="c1">// broche DATA du capteur est reliee </span>
+<span class="c1">// Définit la broche de l&#39;Arduino sur laquelle la </span>
+<span class="c1">// broche DATA du capteur est reliée </span>
 <span class="cp">#define brocheDHT 23</span>
 
-<span class="c1">// Definit le type de capteur utilise</span>
+<span class="c1">// Definit le type de capteur utilisé</span>
 <span class="cp">#define DHTTYPE DHT22</span>
 
 <span class="c1">// Declare un objet de type DHT</span>
@@ -465,13 +469,13 @@ Ce capteur se branche sur une broche numérique d'une carte électronique type A
 <span class="kr">void</span><span class="w"> </span><span class="nb">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">begin</span><span class="p">(</span><span class="mi">9600</span><span class="p">);</span><span class="w"></span>
 
-<span class="w">  </span><span class="c1">// Initialise la capteur DHT11</span>
+<span class="w">  </span><span class="c1">// Initialise le capteur DHT22</span>
 <span class="w">  </span><span class="n">dht</span><span class="p">.</span><span class="nf">begin</span><span class="p">();</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 
 <span class="kr">void</span><span class="w"> </span><span class="nb">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="c1">// Recupere la temperature et l&#39;humidite du capteur et l&#39;affiche</span>
-<span class="w">  </span><span class="c1">// sur le moniteur serie</span>
+<span class="w">  </span><span class="c1">// Récupère la température et l&#39;humidité du capteur et l&#39;affiche</span>
+<span class="w">  </span><span class="c1">// sur le moniteur série</span>
 <span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="s">&quot;Temperature = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="kr">String</span><span class="p">(</span><span class="n">dht</span><span class="p">.</span><span class="nf">readTemperature</span><span class="p">())</span><span class="o">+</span><span class="s">&quot; °C&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="s">&quot;Humidite = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="kr">String</span><span class="p">(</span><span class="n">dht</span><span class="p">.</span><span class="n">readHumidity</span><span class="p">())</span><span class="o">+</span><span class="s">&quot; %&quot;</span><span class="p">);</span><span class="w"></span>
 
