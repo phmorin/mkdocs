@@ -1,4 +1,5 @@
-site_name: STI2D Jules Verne
+site_name: "STI2D - Lycée Jules Verne - Mondeville"
+site_url: https://phmorin.github.io/sti2d-jv/
 theme:
   name: material
   features:
