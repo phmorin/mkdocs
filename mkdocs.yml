@@ -30,6 +30,10 @@ theme:
       primary: teal
       accent: lime
 
+font:
+    text: Roboto
+    code: Roboto Mono
+
 extra:
   social:
     - icon: fontawesome/brands/github-alt
