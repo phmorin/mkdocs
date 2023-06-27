@@ -56,6 +56,10 @@ void loop() {
 
 Les données sont affichées toutes les 10 secondes dans le moniteur série de votre IDE (Arduino ou Visual Studio Code).
 
+## Affichage de la trame envoyée par le capteur 
+La trame se compose de 5 octets :  
+![trame](https://lh5.googleusercontent.com/twG0vCkv3Z74DNrJjbSCaLILVVmDi-Miml2qCndpzZBaLcLSH7Vg8axyfUWezUwBqVBN8iI_dD5ChLr-LWHiQGT6OAOgErF1__RAhUuxMP5c5kxDD-Hauqw-poAuKF_RPxjCogJW)
+
 
 
 
