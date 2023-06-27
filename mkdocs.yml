@@ -15,10 +15,6 @@ theme:
 
   language: fr
 
-  icon:
-    admonition:
-      <type>: <icon>
-
   palette:
     - scheme: default
       toggle:
