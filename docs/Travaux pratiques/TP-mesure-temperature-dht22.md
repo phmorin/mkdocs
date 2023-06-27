@@ -63,7 +63,7 @@ La trame se compose de 5 octets :
 Les deux premiers octets indiquent en poucentage l'humidité ; les deux suivants la température ; le dernier est la somme de vérification des quetre premiers.  
 
 On peut observer simlement cette trame en utilisant un analyseur de trame :  
- ![AZDelivery](https://m.media-amazon.com/images/I/61ePywjCrML._SX522_.jpg)
+ ![AZDelivery](https://m.media-amazon.com/images/I/61ePywjCrML._SX522_.jpg){ width=150px }
 
 
 
