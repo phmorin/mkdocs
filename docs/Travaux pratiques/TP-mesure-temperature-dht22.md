@@ -60,7 +60,10 @@ Les données sont affichées toutes les 10 secondes sur le moniteur série de vo
 La trame se compose de 5 octets :  
 ![trame](https://lh5.googleusercontent.com/twG0vCkv3Z74DNrJjbSCaLILVVmDi-Miml2qCndpzZBaLcLSH7Vg8axyfUWezUwBqVBN8iI_dD5ChLr-LWHiQGT6OAOgErF1__RAhUuxMP5c5kxDD-Hauqw-poAuKF_RPxjCogJW)
 
-Mise à jour
+Les deux premiers octets indiquent en poucentage l'humidité ; les deux suivants la température ; le dernier est la somme de vérification des quetre premiers.  
+
+On peut observer simlement cette trame en utilisant un analyseur de trame :  
+ ![AZDelivery](https://m.media-amazon.com/images/I/61ePywjCrML._SX522_.jpg)
 
 
 
