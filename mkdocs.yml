@@ -23,14 +23,14 @@ theme:
       toggle:
         icon: material/toggle-switch-off-outline
         name: Switch to dark mode
-      primary: indigo
+      primary: teal
       accent: purple
 
     - scheme: slate
       toggle:
         icon: material/toggle-switch
         name: Switch to lignt mode
-      primary: indigo
+      primary: teal
       accent: lime
 
 extra:
