@@ -12,7 +12,8 @@
 
 ## Câblage
 
-
+Le signal du capteur DHT22 est relié à la broche __23__ de l'ESP32. Les deux autres broches correspondent à l'alimentation du capteur et sa mise à la même masse que l'ESP32.   
+![](images/montage-esp32-dht22.png){ width=500px }
 ## Programme
 
 Le programme en entier :
@@ -63,7 +64,14 @@ La trame se compose de 5 octets :
 Les deux premiers octets indiquent en poucentage l'humidité ; les deux suivants la température ; le dernier est la somme de vérification des quetre premiers.  
 
 On peut observer simplement cette trame en utilisant un analyseur de trame comme celui ci-dessous :  
- ![AZDelivery](https://m.media-amazon.com/images/I/61ePywjCrML._SX522_.jpg){ width=250px }
+ ![AZDelivery](https://m.media-amazon.com/images/I/61ePywjCrML._SX522_.jpg){ width=250px }  
+
+Le logiciel à installer est disponible à cette adresse : [Saleae](https://www.saleae.com/downloads/).
+
+ Le GND de l'analyseur doit être relié au GND du montage. Un des canaux doit être relié à la broche 23.
+
+ Capture de la trame :
+ ![](images/trame-dht22-legende.png)
 
 
 

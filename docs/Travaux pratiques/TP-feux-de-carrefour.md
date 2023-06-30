@@ -109,18 +109,20 @@ on ne commande pas directement l'extinction et l'allumage des feux directement d
 
 Elles se placent à la suite de la fonction `loop()`. Par exemple :
 
-```arduino
+``` arduino
 void passageVoieA() {
   digitalWrite(feuRougeVoieA, LOW);
   digitalWrite(feuOrangeVoieA, LOW);
   digitalWrite(feuVertVoieA, HIGH);
 }
-````
+```
+
 Les autres fonctions seront semblables.
 
 ## Programme complet
 Il est téléchargeable ici : [feu-tricolore-1.ino](feu-tricolore-1/feu-tricolore-1.ino)
 
-!!! bug "Travail à réaliser"
-    Vous devez créer ce montage et tester le programme avec un seul feu dans un premier temps.  
-    Ensuite vous devez câbler un deuxième feu tricolore, qui indiquera le fonctionnement pour les véhicules de la voie B. À vous de modifier le programme pour y insérer les extinctions et allumages du deuxième feu...
+!!! bug "Travaux à réaliser"
+    1. créer ce montage et tester le programme avec un seul feu.  
+    2. câbler un deuxième feu tricolore, qui indiquera le fonctionnement pour les véhicules de la voie B. À vous de modifier le programme pour y insérer les extinctions et allumages du deuxième feu...
+
