@@ -73,6 +73,8 @@ Le logiciel à installer est disponible à cette adresse : [Saleae](https://www.
  Capture de la trame :
  ![](images/trame-dht22-legende.png)
 
+ Les 16 premiers bits indique le nombre 525, soit un taux d'humidité de __52,5%__ ; les 16 bits suivants nous donne la température : 213, soit __21,3°C__.
+
 
 
 
